@@ -23,7 +23,7 @@ namespace SkillNetworkAPI.Controllers{
         [HttpGet("GetAllUsers")]
 
         public IEnumerable<User> GetAllUsers(){
-            string sql = "SELECT user_id, first_name, last_name, gender, date_of_birth, description, image, account_created, active FROM users.user_info";
+            string sql = @"SELECT user_id AS UserId, first_name AS FirstName, last_name AS LastName, gender AS Gender,date_of_birth AS DateOfBirth, description AS Description, image AS Image,account_created AS AccountCreated, active AS Active FROM users.user_info";
             Console.WriteLine(sql);
             IEnumerable<User> users =  _dapper.LoadData<User>(sql);
             return users;
